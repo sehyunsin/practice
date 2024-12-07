@@ -56,8 +56,4 @@ export default function handler(req, res) {
    );
  }
 
-
- 페이지네이션의 개념과 필요성 설명
-Next.js에서 동적인 데이터 처리 방법 강조
-페이지네이션을 확장해 검색 기능과 결합하는 방법 예고
  
