@@ -1,0 +1,35 @@
+Turborepo를 사용한 Next.js 모노레포의 일반적인 디렉토리 구조입니다. 이 구조를 기반으로 프로젝트를 확장해나가세요.
+
+my-turborepo/
+├── apps
+│   ├── web         # 메인 Next.js 앱
+│   └── docs        # 문서 또는 블로그 (Next.js)
+├── packages
+│   ├── ui          # 공통 React 컴포넌트 (Button, Card...)
+│   ├── tsconfig    # 공유 TypeScript 설정
+│   └── eslint-config-custom # 공유 ESLint 설정
+└── package.json    # 워크스페이스 설정
+
+
+package.json
+루트 package.json에 workspaces를 설정하여 모노레포를 활성화합니다.
+
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "turbo": "latest",
+    // ...
+  }
+}
+
+이제 루트에서 npm run dev를 실행하면, turbo가 apps 내 모든 프로젝트의 dev 스크립트를 동시에 실행시켜 줍니다.
+
